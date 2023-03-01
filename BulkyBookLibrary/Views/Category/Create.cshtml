@@ -1,5 +1,12 @@
 ﻿@model Category
 
+
+@if (@TempData["AlertMessage"] != null ) {
+<div class="alert alert-warning">
+    <strong></strong>@TempData["AlertMessage"]
+</div>
+}
+
 <div class="border p-3 mt-4">
 <form method="post">
    

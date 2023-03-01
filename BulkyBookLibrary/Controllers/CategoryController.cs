@@ -35,6 +35,7 @@ namespace BulkyBookLibrary.Controllers
             _db.SaveChanges();
             return RedirectToAction("Index");
             }
+            TempData["AlertMessage"] = "Enter the Required Data !";
             return View(obj);
         }
     }
