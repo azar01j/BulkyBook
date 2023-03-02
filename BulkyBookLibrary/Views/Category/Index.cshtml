@@ -12,7 +12,6 @@ For more information on enabling MVC for empty projects, visit https://go.micros
 }
 
 
-<div class="container p-3">
     <div class="row pt-4">
         <div class="col-6">
             <h2 class="text-primary">
@@ -26,17 +25,21 @@ For more information on enabling MVC for empty projects, visit https://go.micros
         </div>
     </div>
 
+<div>
 <table class="table table-bordered table-stripped" style="width:100%">
     <thead>
         <tr>
-            <th class="col-4">
+            <th class="col-3">
                 Category Name
             </th>
-             <th class ="col-4">
+             <th class ="col-3">
                 Display Order
             </th>
-            <th class="col-4">
+            <th class="col-3">
                 Created Date
+            </th>
+            <th class="col-1">
+                Edit/Delete
             </th>
         </tr>
     </thead>
@@ -44,22 +47,30 @@ For more information on enabling MVC for empty projects, visit https://go.micros
         @foreach(var obj in Model)
         {
             <tr>
-                <td class="col-4">
+                <td class="col-3">
                     @obj.Name
                 </td>
-                <td class="col-4">
+                <td class="col-3">
                     @obj.DisplayOrder
                 </td>
-                <td class="col-4">
+                <td class="col-3">
                     @obj.CreatedDate
                 </td>
+                <td class="col-3">
+                 <div>
+                    <a asp-controller="Category" asp-action="Edit" asp-route-id="@obj.CategoryId" class="btn btn-primary">
+                        <i class="bi bi-pencil-square"></i>
+                    </a>
+                    <a asp-controller="Category" asp-action="Delete" asp-route-id="@obj.CategoryId" class="btn btn-primary">
+                        <i class="bi bi-trash"></i>
+                    </a>
+                </div>
             </tr>
         }
     </tbody>
 
 </table>
 </div>
-
 
 @section Scripts{
     @{
